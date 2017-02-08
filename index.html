@@ -1,0 +1,42 @@
+<html>
+
+<head>
+<title>登录主页</title>
+ <!-- <script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+ <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> -->
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</head>
+
+<body>
+<img class="bg" src="images/login.jpg" />
+<div class="logon">
+
+     <div class="log_switch">
+         <div class="login bot logstyle">用户登录</div>
+         <div class="reg bot">用户注册</div>
+     </div>
+
+     <form id="login_form" name="login_form">         
+         <input type="text" id="username" name="username"  disableautocomplete  autocomplete="off" placeholder="请输入用户名"/>     
+		 <input type="password" id="password" name="password" placeholder="请输入密码"/>
+		 <input type="checkbox" id="check" name="check" checked />7天内自动登录 
+		 <a href="#">忘记密码</a>
+		 <div id="log_error"></div>
+		 <input type="button" id="submit" value="登录">
+     </form>
+
+	 <form  id="register_form" name="register_form" >         
+         <input type="text" id="reg_username" name="reg_username" placeholder="请输入新用户名"/>     
+         <input type="password" id="reg_password" name="reg_password" placeholder="请输入密码"/>
+	     <input type="password" id="reg_repass" name="reg_repass" placeholder="请再次输入密码"/>	
+	     <div id="reg_error"></div>
+	     <input type="button" id="register" value="注册">
+     </form>
+
+</div>
+</body>
+</html>

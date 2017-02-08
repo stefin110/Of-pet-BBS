@@ -1,0 +1,255 @@
+﻿$(function(){
+	  $.post("./php/main.php",function(msg){	
+         $("#logonuser").prepend(msg);
+		  //parent.location.href="login.html";			  
+	  });	
+	  
+	  $("#logout").click(function(){
+         $.post("./php/logout.php",function(){
+		 //alert("test");
+		 location.href="index.html";		 
+	     })		
+	  }) 
+	  /* 时钟 */
+       setInterval(function(){
+		  var now=new Date();
+		  var h=now.getHours();
+		  var m=now.getMinutes();
+		  var s=now.getSeconds();
+		  var time=(h<10 ? "0"+h:h)+":"+(m<10 ? "0"+m:m)+":"+(s<10 ? "0"+s:s);
+          $('#clock').html(time);		  		   
+	   },1000);
+      /* 内容一：点击左右滑动 */   
+ 	 var page=1;
+	 $(".next").click(function(){
+		 var v_wrap = $(this).parents(".scroll");
+		 var v_show = v_wrap.find(".scroll_list");
+		 var v_cont = v_wrap.find(".box");
+		 var v_width = v_cont.width();
+		 var len = v_show.find("li").length;
+		 var page_count = len;
+			 if(page == page_count){
+				 v_show.animate({left:'0px'},"slow");
+				 page =1;
+		     }else{
+				 v_show.animate({left:'-='+v_width},"slow");
+				 page++;								 
+			 }		
+                                     /*  +return false防止点击完按钮后页面回到顶部 或a标签href="javascript:void(0)"*/			 
+	 });
+	   
+	 $(".prev").click(function(){
+	     var v_wrap = $(this).parents(".scroll");
+		 var v_show = v_wrap.find(".scroll_list");
+		 var v_cont = v_wrap.find(".box");
+		 var v_width = v_cont.width();
+    	 var len = v_show.find("li").length;
+		 var page_count = len;
+		 if(!v_show.is(":animated")){
+			 if(page == 1){
+				 v_show.animate({left:'-='+ v_width*(page_count-1)},"slow"); /* animate里面的数值属性不需要加单位 */
+				 page =page_count;
+		     }else{
+				 v_show.animate({left:'+='+ v_width},"slow");
+				 page--;								 
+			 }			 			 
+		 }
+		 
+	 
+	 });
+	 
+	 
+	 /* 选定导航的颜色变化 */
+	 $("ul.navigation li a").click(function(){
+		 $(this).addClass("bgcolor").parent().siblings().find("a").removeClass('bgcolor'); /* 必须精确到a标签 */
+		 /* $(this).siblings('li').removeClass('bgcolor');
+         $(this).addClass('bgcolor');  */		 
+       });
+
+
+     $("#backtotop").hide();
+    $(window).scroll(function(){
+		 if($(window).scrollTop()>100){			
+			 $("#backtotop").fadeIn(1500);
+		 }else{
+			 $("#backtotop").fadeOut(1500);
+		 }
+	 });
+  
+     $("#backtotop").click(function(){
+		 $('body,html').animate({
+			 scrollTop:0			 
+		 },1000);
+		 $(".aboutme").addClass("bgcolor").parent().siblings().find("a").removeClass('bgcolor'); //回到顶部导航颜色变化
+		 return false;	 
+ 	 });  
+	 
+	 
+     /* 第二个页面鼠标悬停效果 */
+	 $(".f1").mouseover(function(){
+		 $(".f2").css("color","#69c");	 
+		 $(".intro1").show();
+	 }).mouseout(function(){
+		 $(".f2").css("color","#666");
+		 $(".intro1").hide();
+	 
+	 });
+	 
+	 	 $(".f4").mouseover(function(){
+		 $(".f3").css("color","#69c");	 
+		 $(".intro2").show();
+	 }).mouseout(function(){
+		 $(".f3").css("color","#666");
+		 $(".intro2").hide();
+	 
+	 });
+	 
+	 
+	  /* 第三个页面鼠标悬停效果 */
+	 $('.zzc div').hover(function(){
+		$('.introduce1',this).stop().animate({
+			height:'130px'
+		});
+	},function(){
+		$('.introduce1',this).stop().animate({
+			height:'0'
+		});
+	});
+	  
+	  
+	 			 
+	
+
+
+//wrapper3点击图片放大效果（未通）
+/*  $(".showphotos ul li").each(function(index){
+	
+		 if(index<3){			 
+			$(this).mouseenter(function(){				
+             var ofleft=index*198+8+'px';
+			 $(".shade").show();
+		     $(".shade").css({"left":ofleft,"top":'28px'});	
+ 			 var ofleft=null;
+		     });   .mouseout(function(){  //mouseout时遮罩层闪烁，因为冒泡
+		     $(".shade").hide();   
+			 }); 				 
+		 }else if(index>2){
+			 $(this).mouseover(function(){				 
+			 var offleft=(index-3)*198+8+'px';			  
+			 $(".shade").show();
+			 $(".shade").css({"left":offleft ,"top":"215px"});
+             }); 
+			 }					 			  	
+	}) 
+			
+/* 
+	 
+	 $(".shade").click(function(){		 
+		 $(".mask").show();
+
+	 }) 
+	 
+	 $(".mask").click(function(){		 
+		 $(".mask").hide();
+
+	 })  */
+	
+
+	
+     //wrapper3点击图片放大效果
+	$(".mark").imgbox({
+		'speedIn'		: 0,
+		'speedOut'		: 0,
+		'alignment'		: 'center',
+		'overlayShow'	: true,
+		'allowMultiple'	: false
+	}); 
+	 
+	
+	$('.showphotos ul li').hover(function(){
+		$('.mark',this).fadeIn();
+	},function(){
+		$('.mark',this).fadeOut();
+	});
+ 
+ 
+ 
+         /* wrapper2导航效果 */
+	     $(".templatevalue").val("0");
+	     $(".kj-nav ul li").each(function(index){
+		 var ofleft=index*147+25+'px';
+		 $(this).hover(function(){
+			 $('.move-bg').show();
+			 $('.move-bg').animate({
+				 left:ofleft				 
+			 });			 
+		 },function(){	
+            var clickvalue=$(".templatevalue").val(); 
+			var ofleft1=clickvalue*147+25+'px';	
+			 $('.move-bg').animate({
+				 left:ofleft1				 
+			 });		    
+		  }); 
+
+		  $(this).click(function(){			 
+			 var indexx=index;
+			 $(".templatevalue").val(indexx);
+             $(this).children("a").addClass("default").parent().siblings().find("a").removeClass('default');			 ;
+              var wid=index*-543+6+'px';
+			 $('.kj-content').animate({
+				 left:wid			 
+			 }); 
+			 
+			 });
+					 
+			 }); 
+			 
+			 
+			 
+			 
+			/*  wrapper2内容一左侧新闻列表 */
+			$(".tablist span").each(function(index){
+		
+		 $(this).hover(function(){
+			 $(this).addClass("select").siblings("span").removeClass("select");
+			 $(".tabcont1").eq(index).show().siblings("div .tabcont1").hide();	 
+		 },function(){	
+           	  
+		  }); 
+			 }); 
+			 
+			 
+			 
+		/*  wrapper2内容三小图片hover效果 */	 
+		$(".gimge .smalldog img").each(function(index){
+		
+		 $(this).hover(function(){
+			 $(this).removeClass("tee").addClass("smalldoghover");			
+			 $(this).parents(".dogli").find(".dogshow1 a img").attr("src",$(this).attr('src'));
+		 },function(){	
+           	   $(this).addClass("tee").removeClass("smalldoghover");
+		  }); 
+			 }); 
+			 	 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+	 
+	 
+	
+});  
+
+
+
+
+
+
+		
+		
+		
+	   
+	

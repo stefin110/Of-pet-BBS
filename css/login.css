@@ -1,0 +1,234 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	 padding:0;
+	 margin:0;	
+}
+ /*body{
+     margin:0 auto;
+     padding:0px;
+     background: url('../images/login.jpg');
+     background-size:cover;
+      position:relative; 
+}  */
+
+body{	
+	  
+}
+.bg{                /* 通过加入图片设置背景使得IE9-背景图片平铺 */
+	 position:relative;
+	 top:0;
+	 left:0;
+	 z-index: -1;
+	 width: 100%;
+	 min-width:800px;
+	 height: 100%;
+}
+.test{
+	color:999;
+	
+	
+}
+
+.logon{
+	 width:280px;
+	 height:270px;
+	 background:black;
+	 background:rgba(2,2,2,0.2);  /* 只设置背景透明，不会影响子元素透明度；不支持IE*/
+	 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#19ffffff);
+	 -ms-background:rgba(2,2,2,0.2); 
+	 position:absolute;
+  	 float:left;
+   	 left:68%;
+	 top:130px;	 
+}
+
+
+.log_switch{
+	 width:270px;
+	 height:60px;
+	 margin:0 auto;
+	 margin:0 0 0 20px\0; /* 兼容IE */
+	 cursor:pointer;	
+}
+
+.login ,.reg{
+	 width:135px;
+	 height:45px;
+     line-height:45px;
+	 text-align:center;
+	 float:left;	
+	 color:#ccc;
+     font-weight:bold;	 
+	 font-family:"楷体";
+	 font-size:20px;
+}
+
+.bot{
+	 border-bottom:1px solid #ccc;
+	  
+}
+
+.light{
+	 color:white;	
+}
+
+.logstyle{
+	 border-bottom:3px solid #06f;
+	 height:43px;
+     line-height:43px;
+	 color:white;
+	 
+}
+
+#login_form{
+	 width:240px;
+	 height:220px;	
+	 float:left;
+	 margin:0 17px;
+     font-family:"楷体";	
+	 color:white;	
+}
+
+#username,#password{
+	 width:240px;
+	 height:30px;
+	 line-height:30px;
+     float:left;	 
+	 margin:10px 0;
+	 background-image:url("../images/user.png");
+	 background-repeat:no-repeat;
+	 text-indent:21px;  /* 缩进首行 */	
+}
+
+#password{
+	 margin:0 0;
+	 background-image:url("../images/pass.png"); 
+}
+
+#passw0{
+	 width:240px;
+	 height:30px;
+	 line-height:30px;
+	 margin:0 0;
+     float:left;	 
+	  background-image:url("../images/pass.png"); 
+	 background-repeat:no-repeat;
+	 text-indent:21px;  /* 缩进首行 */	
+}
+
+#passw1{	
+	 width:240px;
+	 height:30px;
+	 line-height:30px;
+	 float:left; /* 如果#reg_error不加overflow设置该属性，那么火狐等浏览器按钮就会与文本框重叠 */
+	 margin:0 0 10px 0;
+	 background-image:url("../images/pass.png");
+	 background-repeat:no-repeat;
+     text-indent:21px;   /* 缩进首行 */	
+}
+
+
+#passw2{	
+	 width:240px;
+	 height:30px;
+	 line-height:30px;
+	 float:left; /* 如果#reg_error不加overflow设置该属性，那么火狐等浏览器按钮就会与文本框重叠 */
+	 margin:0 0;
+	 background-image:url("../images/pass.png"); 
+	 background-repeat:no-repeat;
+     text-indent:21px;   /* 缩进首行 */	
+}
+
+
+.placeholder{
+	
+	color:#888;
+	
+}
+#check{
+      margin:12px 0px 0px 0px; 
+      margin:12px 2px 0px 11px\0;	 /* \0兼容IE8 */ 	  
+}
+
+
+#login_form  a{	 
+	  margin:12px 0px 0px 25px;	
+      margin:12px 0px 0px 25px\0;
+	  position:relative;
+	  right:-19px;  
+	  text-decoration:none;
+	  color:white;
+}
+
+#login_form  a:hover{
+	 text-decoration:none;
+	 color:#eee;	
+}
+
+#log_error,#reg_error{
+	 width:250px;
+	 height:21px;
+	 margin:0 0;
+	 margin:0 0 0 14px\0;
+	 color:red;
+	 font-size:17px;
+	 font-weight:bold;
+	 overflow:hidden;
+}
+
+#submit,#register{
+	 width:240px;
+	 height:40px;
+	 
+	 margin:0px 5px 0px 0px;	
+	 font-size:20px;
+	 font-weight:bold;
+	 color:white;
+	 background-color:#06f;
+	 border:none;
+}
+
+#submit:hover,#register:hover{
+	 background-color:#05f;
+}
+
+#register_form{
+	 width:260px;
+	 height:230px;	
+	 float:left;
+	 margin:0 17px;
+     font-family:"楷体";	
+	 color:white;
+	 z-index:100;
+	 display:none;	 
+}
+
+#reg_username,#reg_password,#reg_repass{
+	
+	 width:240px;
+	 height:30px;
+	 line-height:30px;
+	 float:left; /* 如果#reg_error不加overflow设置该属性，那么火狐等浏览器按钮就会与文本框重叠 */
+	 margin:10px 0;
+	 background-image:url("../images/user.png");
+	 background-repeat:no-repeat;
+     text-indent:21px;   /* 缩进首行 */	
+}
+
+#reg_password{
+	 margin:0 0 10px 0;
+	 background-image:url("../images/pass.png"); 	
+}
+
+#reg_repass{
+	 margin:0 0;
+	 background-image:url("../images/pass.png"); 
+     
+}
+
+#register{
+	 margin:0 auto;	
+}
+
+
